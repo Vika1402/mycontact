@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
+const dotenv=require('dotenv')
+dotenv.config();
+const url=process.env.MONGO_URI;
 const connectDb = async () => {
   try {
-    const connect = await mongoose.connect("mongodb+srv://vicksbhai91:Iamvikas@basecluster.rfbftks.mongodb.net/mycontact-backend?retryWrites=true&w=majority&appName=basecluster");
+    const connect = await mongoose.connect(url);
     console.log(
       "Database Connected ",
       connect.connection.host,
